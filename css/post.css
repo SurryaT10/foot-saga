@@ -17,3 +17,9 @@
 .input-div select {
     cursor: pointer;
 }
+
+#post-content {
+    width: 80%;
+    height: 150px;
+    border-radius: 5px;
+}

@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    box-sizing: border-box;
     overflow: hidden;
 }
 
@@ -9,6 +10,7 @@ body {
     background-color: #333;
     color: #fff;
     padding: 20px;
+    width: 100%;
 }
 
 .nav-header h1 {
@@ -25,8 +27,6 @@ body {
     text-decoration: none;
     list-style: none;
     color: aliceblue;
-    background-color: blueviolet;
-    border: 2px solid aliceblue;
     cursor: pointer;
     padding: 5px;
     margin-right: 20px;
@@ -70,7 +70,7 @@ body {
 }
 
 .background-img {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -118,5 +118,9 @@ body {
 
     .nav-container {
         width: 100%;
+    }
+
+    .nav-container li {
+        display: flex;
     }
 }

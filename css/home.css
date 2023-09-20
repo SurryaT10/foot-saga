@@ -24,6 +24,7 @@
 }
 
 .featured-post img {
+    margin-left: 10px;
     height: 200px;
     width: 200px;
     float: right;
@@ -67,6 +68,18 @@
     flex-wrap: wrap;
 }
 
+@media only screen and (max-width: 1000px) {
+    body {
+        overflow: auto;
+    }
+}
+
+@media only screen  and (max-height: 800px) {
+    body {
+        overflow: auto;
+    }
+}
+
 @media only screen and (max-width: 600px) {
     .description {
         display: none;
@@ -78,6 +91,12 @@
     }
 
     .post-description {
+        display: none;
+    }
+}
+
+@media only screen and (max-height: 650px) {
+    .description {
         display: none;
     }
 }
