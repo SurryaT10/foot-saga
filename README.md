@@ -8,7 +8,7 @@
 ![Relation for Foot-Blogger!](/Design/Relation.png)
 
 # Setup
-$ git clone https://github.com/SurryaT10/foot-blogger.git
+$ git clone [https://github.com/SurryaT10/foot-saga.git](https://github.com/SurryaT10/foot-saga.git)
 
 # DB Setup
 Follow steps in ![DB-Setup](/Design/Database_Setup.txt)
