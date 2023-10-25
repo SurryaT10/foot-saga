@@ -1,0 +1,6 @@
+Business Rules
+
+1) A USER can create many ARTICLES. However, each ARTICLE can be created by exactly one USER. A USER may or may not create ARTICLES.
+2) A USER can write many COMMENTS. However, each COMMENT can be written by exactly one USER. A USER may or may not write COMMENTS.
+3) A COMMENT is associated with exactly one ARTICLE. However, an article includes many COMMENTS. An ARTICLE does not neccessarily require to have COMMENTS.
+4) An ARTICLE belongs to exactly one CATEGORY. However, a CATEGORY can contain many ARTICLES. A CATEGORY does not neccessarily require to have ARTICLES.
