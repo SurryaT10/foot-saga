@@ -12,3 +12,7 @@ $ git clone [https://github.com/SurryaT10/foot-saga.git](https://github.com/Surr
 
 # DB Setup
 Follow steps in [DB-Setup](/Design/Database_Setup.txt)
+
+# Server setup
+1. Copy contents of .env.example to .env and modify the env variables
+2. npm install
