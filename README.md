@@ -15,4 +15,6 @@ Follow steps in [DB-Setup](/Design/Database_Setup.txt)
 
 # Server setup
 1. Copy contents of .env.example to .env and modify the env variables
+    Windows
+        copy .\.env.example .env
 2. npm install
