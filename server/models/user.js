@@ -39,7 +39,7 @@ const getAllUsers = async () => {
     return await users;
 }
 
-async function login(user) {
+const login = async (user) => {
     let userResult = await getUser('user_name', user.userName)
     if(!userResult[0]) throw Error("Username not found!!")
     if(userResult[0].user_password != user.userPassword) throw Error("Password Incorrect!!")
