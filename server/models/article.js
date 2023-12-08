@@ -1,11 +1,11 @@
-const con = require('../db_connect');
+const con = require('./db_connect');
 
 async function createTable() {
     const sql = `CREATE TABLE IF NOT EXISTS ARTICLE (
         article_id INT NOT NULL AUTO_INCREMENT,
         user_id INT NOT NULL,
         category_id INT NOT NULL,
-        article_title VARCHAR(255) NOT NULL,
+        article_title VARCHAR(255) NOT NULL UNIQUE,
         article_description VARCHAR(255) NOT NULL,
         PRIMARY KEY(article_id),
         FOREIGN KEY(user_id) REFERENCES USER(user_id),
@@ -43,6 +43,51 @@ const getAllArticles = () => {
     return articles;
 }
 
+async function getArticle(column, value) {
+    const sql = `
+        SELECT * FROM article WHERE ${column} = "${value}";
+    `;
+
+    const article = await con.query(sql);
+    return article[0];
+}
+
+const createArticle = async (article) => {
+    let sql = `
+        INSERT INTO article (user_id, category_id, article_title, article_description)
+        VALUES ("${article.userId}", "${article.categoryId}", "${article.articleTitle}", "${article.articleDescription}");
+    `
+
+    await con.query(sql);
+
+    const newArticle = await getArticle('article_title', article.articleTitle);
+    return newArticle;
+}
+
+const editArticle = async (article) => {
+    let existingArticle = await getArticle('article_id', article.articleId)
+    if(existingArticle.length == 0) throw Error("Article not available!");
+  
+    let sql = `UPDATE article SET
+        user_id = ${article.userId},
+        category_id = ${article.categoryId},
+        article_title = "${article.articleTitle}",
+        article_description = "${article.articleDescription}"
+        WHERE article_id = ${article.articleId}
+    `
+    await con.query(sql)
+    const updatedArticle = await getArticle('article_id', article.articleId);
+
+    return updatedArticle
+}
+  
+const deleteArticle = async (article) => {
+    let sql = `DELETE FROM article
+        WHERE article_id = ${article.articleId}
+    `
+    await con.query(sql)
+}
+
 createTable();
 
-module.exports = { getAllArticles };
+module.exports = { getAllArticles, createArticle, getArticle, editArticle, deleteArticle };
