@@ -124,3 +124,10 @@ body {
         display: flex;
     }
 }
+
+.error-message {
+    color: red;
+    position: relative;
+    left: 60px;
+    display: none;
+}

@@ -42,7 +42,7 @@ const getAllUsers = async () => {
 const login = async (user) => {
     let userResult = await getUser('user_name', user.userName)
     if(!userResult[0]) throw Error("Username not found!!")
-    if(userResult[0].user_password != user.userPassword) throw Error("Password Incorrect!!")
+    if(userResult[0].user_password != user.password) throw Error("Password Incorrect!!")
   
     return userResult[0]
   }
@@ -53,7 +53,7 @@ const register = async (user) => {
 
     let sql = `
         INSERT INTO user (first_name, last_name, user_name, user_password)
-        VALUES ("${user.firstName}", "${user.lastName}", "${user.userName}", "${user.userPassword}");
+        VALUES ("${user.firstName}", "${user.lastName}", "${user.userName}", "${user.password}");
     `
 
     await con.query(sql)

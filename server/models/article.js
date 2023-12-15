@@ -55,12 +55,15 @@ async function getArticle(column, value) {
 const createArticle = async (article) => {
     let sql = `
         INSERT INTO article (user_id, category_id, article_title, article_description)
-        VALUES ("${article.userId}", "${article.categoryId}", "${article.articleTitle}", "${article.articleDescription}");
+        VALUES ("${article.userId}", "${article.categoryId}", "${article.title}", "${article.content}");
     `
+
+    console.log(article)
+    console.log(article);
 
     await con.query(sql);
 
-    const newArticle = await getArticle('article_title', article.articleTitle);
+    const newArticle = await getArticle('article_title', article.title);
     return newArticle;
 }
 

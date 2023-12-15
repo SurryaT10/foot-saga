@@ -14,7 +14,7 @@ router.get('/getAllUsers', async (req, res) => {
 .post('/login', async (req, res) => {
     try {
         const user = await User.login(req.body)
-        res.send({...user, userPassword: undefined})
+        res.send({...user, user_password: undefined})
     } catch(err) {
         res.status(401).send({message: err.message})
     }

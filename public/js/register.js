@@ -7,7 +7,7 @@ function User(firstName, lastName, userName, password) {
     this.password = password;
 }
 
-function register(e) {
+async function register(e) {
     e.preventDefault();
 
     const firstName = document.getElementById('first-name')?.value;
@@ -16,5 +16,27 @@ function register(e) {
     const password = document.getElementById('password')?.value;
 
     const user = new User(firstName, lastName, userName, password);
-    console.log(user);
+
+    try {
+        const response = await fetch("http://localhost:3000/user/register", {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user),
+        });
+
+        const data = await response.json();
+        if (!data.message) {
+            localStorage.setItem('user', JSON.stringify(data));
+            window.location.href = "blogs.html"
+        } else {
+            const errorText = document.querySelector('.error-message')
+            errorText.innerText = data.message;
+            errorText.style.display = 'block';
+        }
+        
+    } catch (err) {
+        console.log(err);
+    }
 }

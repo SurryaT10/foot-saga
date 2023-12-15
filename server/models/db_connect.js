@@ -13,14 +13,14 @@ const query = (sql, binding) => {
         return new Promise((resolve, reject) => {
             con.query(sql, binding, (err, result) => {
                 if (err) {
-                    console.log("ERROR " + err);
+                    console.log("ERROR - " + err);
                     reject()
                 };
                 resolve(result);
             });
         });
     } catch (err) {
-        console.log(err);
+        // console.log(err);
     }
 };
 
