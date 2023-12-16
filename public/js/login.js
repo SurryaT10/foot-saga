@@ -25,7 +25,7 @@ async function login(e) {
         const data = await response.json();
         if (!data.message) {
             localStorage.setItem('user', JSON.stringify(data));
-            window.location.href = "post.html"
+            window.location.href = "posts.html"
         } else {
             const errorText = document.querySelector('.error-message')
             errorText.innerText = data.message;

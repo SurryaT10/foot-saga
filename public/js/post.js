@@ -5,24 +5,7 @@ function Post(title, content, tag, image, userId) {
     this.content = content;
     this.image = image;
     this.userId = userId
-
-    switch (tag) {
-        case 'analysis':
-            this.categoryId = 1;
-            break;
-        case 'profile':
-            this.categoryId = 2;
-            break;
-        case 'transfer-news':
-            this.categoryId = 3;
-            break;
-        case 'team-news':
-            this.categoryId = 4;
-            break;
-        case 'history':
-            this.categoryId = 5;
-            break;
-    }
+    this.categoryId = 1
 }
 
 async function publishPost(e) {
@@ -52,7 +35,7 @@ async function publishPost(e) {
 
         const data = await response.json();
         if (!data.message) {
-            window.location.href = "post.html";
+            window.location.href = "posts.html";
         } else {
             const errorText = document.querySelector('.error-message')
             errorText.innerText = data.message;

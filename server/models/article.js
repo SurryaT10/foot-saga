@@ -39,8 +39,10 @@ const articles = [
     }
 ]
 
-const getAllArticles = () => {
-    return articles;
+const getAllArticles = async (userId) => {
+    const sql = `SELECT * FROM article WHERE user_id = ${userId}`;
+
+    return await con.query(sql);
 }
 
 async function getArticle(column, value) {

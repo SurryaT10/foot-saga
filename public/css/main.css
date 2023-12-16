@@ -131,3 +131,27 @@ body {
     left: 60px;
     display: none;
 }
+
+.featured-post {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.featured-post img {
+    margin-left: 10px;
+    height: 200px;
+    width: 200px;
+    float: right;
+}
+
+.featured-post h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.featured-post p {
+    line-height: 1.6;
+}
